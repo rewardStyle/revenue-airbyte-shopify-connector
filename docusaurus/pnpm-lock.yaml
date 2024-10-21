@@ -10150,7 +10150,7 @@ snapshots:
   json-schema-faker@0.5.4:
     dependencies:
       json-schema-ref-parser: 6.1.0
-      jsonpath-plus: 7.2.0
+      jsonpath-plus: 10.0.0
 
   json-schema-ref-parser@6.1.0:
     dependencies:

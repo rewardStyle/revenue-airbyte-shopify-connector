@@ -91,6 +91,16 @@ class Orders(IncrementalShopifyStreamWithDeletedEvents):
             params["status"] = "any"
         return params
 
+class LTKOrders(Orders):
+    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+        response_json = response.json()
+        orders = []
+        for order in response_json.get("reports", []):
+            order = {**order}
+            order["shop_id"] = ""
+            orders.append(order)
+        return orders
+
 
 class Disputes(IncrementalShopifyStream):
     data_field = "disputes"
