@@ -44,8 +44,8 @@ class AWSClient:
 
 class DatabaseClient:
     def __init__(self, config: Mapping[str, Any]):
-        self.connection = self.create_connection(config)
         self.logger = logging.getLogger("airbyte")
+        self.connection = self.create_connection(config)
     
     def extract_db_info(self, db_uri):
         parsed_uri = urlparse(db_uri)
