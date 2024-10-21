@@ -10179,10 +10179,6 @@ snapshots:
 
   jsonpath-plus@7.2.0: {}
 
-  katex@0.16.11:
-    dependencies:
-      commander: 8.3.0
-
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
