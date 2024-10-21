@@ -91,13 +91,13 @@ class Orders(IncrementalShopifyStreamWithDeletedEvents):
             params["status"] = "any"
         return params
 
-class LTKOrders(Orders):
+class LtkOrders(Orders):
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
         response_json = response.json()
         orders = []
-        for order in response_json.get("reports", []):
+        for order in response_json.get("orders", []):
             order = {**order}
-            order["shop_id"] = ""
+            order["shop_id"] = self.config.get("shop_id", None)
             orders.append(order)
         return orders
 
