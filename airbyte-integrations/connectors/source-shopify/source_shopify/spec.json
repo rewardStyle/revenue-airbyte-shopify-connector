@@ -104,8 +104,8 @@
       },
       "secret_manager_account": {
         "type": "string",
-        "title": "AWS Account ID where Secret Manager Secrets are stored",
-        "description": "In order to access secret manager.",
+        "title": "Secret Manager AWS Account ID",
+        "description": "Secret manager account ID where shopify access tokens are stored.",
         "order": 4
       },
       "aws_access_key_id": {
