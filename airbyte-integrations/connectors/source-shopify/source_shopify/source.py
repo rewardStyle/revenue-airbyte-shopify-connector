@@ -256,7 +256,7 @@ class LTKSourceShopify(SourceShopify):
     
     def gatherLTKShopifyStores(self, logger: logging.Logger):
         shops = []
-        shopify_stores = [{"advertiser_homepage": "igkhair.myshopify.com", "affiliateId": "2311487532"}] #self._db_client._get_shopify_store_info()
+        shopify_stores = self._db_client._get_shopify_store_info()
         if not shopify_stores:
             raise Exception("No Shopify Store data available in Milk And Honey.")
 
