@@ -81,7 +81,7 @@ class DatabaseClient:
         
     def _get_shopify_store_info(self):
         try:
-            if self.connection.is_connected():
+            if self.connection and self.connection.is_connected():
                 cursor = self.connection.cursor(dictionary=True)
                 cursor.execute(ADVERTISERS_QUERY)
                 results = cursor.fetchall()
