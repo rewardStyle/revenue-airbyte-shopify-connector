@@ -44,8 +44,8 @@ class AWSClient:
 
 class DatabaseClient:
     def __init__(self, config: Mapping[str, Any]):
-        self.connection = self.create_connection(config)
         self.logger = logging.getLogger("airbyte")
+        self.connection = self.create_connection(config)
     
     def extract_db_info(self, db_uri):
         parsed_uri = urlparse(db_uri)
@@ -81,7 +81,7 @@ class DatabaseClient:
         
     def _get_shopify_store_info(self):
         try:
-            if self.connection.is_connected():
+            if self.connection and self.connection.is_connected():
                 cursor = self.connection.cursor(dictionary=True)
                 cursor.execute(ADVERTISERS_QUERY)
                 results = cursor.fetchall()
